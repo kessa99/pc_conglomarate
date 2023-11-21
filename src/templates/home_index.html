@@ -1,0 +1,48 @@
+{% extends 'base_index.html' %}
+{% block content %}
+    <!-- Content Section -->
+    <section class="h-screen flex items-center justify-center">
+        {% if user.is_authenticated %}
+        <div class="container mx-auto p-8 text-center">
+            <h1 class="text-5xl md:text-7xl leading-tight md:leading-snug">
+                <p>Welcome, {{ user.last_name }}! </p>
+                Vous êtes bien sur <br><span class="text-black font-semibold block md:inline">PC CONGLOMERAT</span>
+            </h1>
+            <p class="w-full md:w-1/2 py-2 mx-auto md:text-left text-center">
+                Mais vous n'êtes pas connecté(e)
+            </p>
+            <div class="mt-5">
+                <button class="px-4 py-1.5 bg-white text-black hover:bg-transparent hover:text-white rounded-full border-2 lg:items-start">
+                    Commencez En vous connectant
+                </button>
+            </div>
+        </div>
+        <p><a href="{% url 'logout' %}">deconnexion</a></p>
+
+
+
+        {% else %}
+
+
+
+        <div class="container mx-auto p-8 text-center">
+            <h1 class="text-5xl md:text-7xl leading-tight md:leading-snug">
+                <p>Welcome, {{ user.last_name }}!</p>
+                Bienvenue sur <span class="text-black font-semibold block md:inline">PC CONGLOMERAT</span>
+            </h1>
+            <p class="w-full md:w-1/2 py-2 mx-auto md:text-left">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga impedit voluptatum voluptas iste, dicta deleniti natus sit nesciunt quia delectus alias, nihil quaerat officia? Iusto?
+            </p>
+            <div class="mt-5">
+                <button class="px-4 py-1.5 bg-white text-black hover:bg-transparent hover:text-white rounded-full border-2 lg:items-start">
+                    Commencez
+                </button>
+                <a href="{% url 'signup' %}">signup</a>
+                <a href="{% url 'login' %}">signup</a>
+            </div>
+        </div>
+        {% endif %}
+    </section>
+    
+
+{% endblock %}
