@@ -1,0 +1,306 @@
+<header class="font-[Poppins] bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee] h-screen">
+  <nav class="flex justify-between items-center w-[92%] mx-auto bg-white relative z-10">
+      <div class="flex items-center text-center">
+          <img class="h-20 w-20" src="../static/img/pc-conglo.png" alt="">
+          <a href="">
+              PC-CONGLOMERAT
+          </a>
+      </div>
+      <div class="md:flex hidden items-center">
+          <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+              <li>
+                  <a class="hover:text-gray-500" href="">Accueil</a>
+              </li>
+              <li>
+                  <a class="hover:text-gray-500" href="">Informations</a>
+              </li>
+              <li>
+                  <a class="hover:text-gray-500" href="">Aide</a>
+              </li>
+              <li>
+                  <a class="hover:text-gray-500" href="">A propos</a>
+              </li>
+              <li>
+                  <button class="hover:text-gray-500">Connexion</button>
+              </li>
+              <li>
+                  <button class="bg-gray-950 text-white px-5 py-2 hover:text-gray-950 hover:bg-white rounded-full">Inscription</button>
+              </li>
+          </ul>
+      </div>
+      <div>
+        <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-4xl cursor-pointer md:hidden"></ion-icon>
+      </div>
+  </nav>
+
+  <!-- Ajout de bg-white pour le fond du header -->
+  <main class="text-white absolute mt-24 w-[92%] mx-16 bg-white bg-opacity-70 p-8 rounded-md">
+    <h1 class="text-7xl"> Bienvenue sur <span class="text-black font-semibold">PC-CONGLOMERAT</span> </h1>
+    <p class="w-1/2 py-4">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga impedit voluptatum voluptas iste, dicta deleniti natus sit nesciunt quia delectus alias, nihil quaerat officia? Iusto?
+    </p>
+    <div class="">
+      <button  class="px-4 py-1.5 bg-white text-black hover:bg-transparent hover:text-white rounded-full border-2">
+        Commencez
+      </button>
+    </div>
+  </main>
+</header>
+
+
+Soucis 1: gerer la responsive version md
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</head>
+
+<body class="font-[Poppins] bg-gradient-to-t from-[#fbc2eb] to-[#a6c1ee] h-screen">
+    <header class="bg-white">
+        <nav class="flex justify-between items-center w-[92%]  mx-auto">
+            <div>
+                <img class="w-16 cursor-pointer" src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="...">
+            </div>
+            <div
+                class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Products</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Solution</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Resource</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Developers</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-gray-500" href="#">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex items-center gap-6">
+                <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Sign in</button>
+                <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+            </div>
+    </header>
+
+
+
+    <script>
+        const navLinks = document.querySelector('.nav-links')
+        function onToggleMenu(e){
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[9%]')
+        }
+    </script>
+</body>
+
+</html>
+
+
+navbar defaillant
+<!-- <header class="bg-white">
+    <nav class="flex justify-between items-center w-[92%]  mx-auto">
+        <div>
+            <img class="w-16 cursor-pointer" src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="...">
+        </div>
+        <div
+            class="nav-links duration-500 md:static  bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+            <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+                <li>
+                    <a class="hover:text-gray-500" href="#">Products</a>
+                </li>
+                <li>
+                    <a class="hover:text-gray-500" href="#">Solution</a>
+                </li>
+                <li>
+                    <a class="hover:text-gray-500" href="#">Resource</a>
+                </li>
+                <li>
+                    <a class="hover:text-gray-500" href="#">Developers</a>
+                </li>
+                <li>
+                    <a class="hover:text-gray-500" href="#">Pricing</a>
+                </li>
+            </ul>
+        </div>
+        <div class="flex items-center gap-6">
+            <button class="bg-[#a6c1ee] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Sign in</button>
+            <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+        </div>
+        
+</header>
+
+<main class=" text-white absolute mt-24 mx-5 md:mx-16">
+    <h1 class="text-4xl md:text-7xl text-center md:text-left leading-tight md:leading-snug">
+      Bienvenue sur <span class="text-black font-semibold"><br> PC CONGLOMERAT</span>
+    </h1>
+    <p class="w-full md:w-1/2 py-2 text-center md:text-left">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga impedit voluptatum voluptas iste, dicta deleniti natus sit nesciunt quia delectus alias, nihil quaerat officia? Iusto?
+    </p>
+    <div class=" mt-5">
+      <button class="px-4 py-1.5 bg-white text-black hover:bg-transparent hover:text-white rounded-full border-2">
+        Commencez
+      </button>
+    </div>
+  </main> -->
+
+<!-- <header class="bg-white">
+  <nav class=" flex justify-between items-center w-[92%]  mx-auto">
+      <div class="flex items-center text-center">
+          <img class="h-20 w-20" src="../static/img/pc-conglo.png" alt="">
+          <a href="">
+              PC-CONGLOMERAT
+          </a>
+      </div>
+      <div class=" nav-links md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+          <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+              <li>
+                  <a class="hover:text-gray-500" href="">Acueil</a>
+              </li>
+              <li>
+                  <a class="hover:text-gray-500" href="">Informations</a>
+              </li>
+              <li>
+                  <a class="hover:text-gray-500" href="">Aide</a>
+              </li>
+              <li>
+                  <a class="hover:text-gray-500" href="">A propos</a>
+              </li>
+              <li>
+                  <button class="hover:text-gray-500">  Connexion</button>
+              </li>
+              <li>
+                  <button class="bg-gray-950 text-white px-5 py-2 hover:text-gray-950 hover:bg-white rounded-full"> inscription </button>
+              </li>
+          </ul>
+      </div>
+      <div>
+          <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-4xl cursor-pointer md:hidden"></ion-icon>
+      </div>
+      
+  </nav>
+
+    
+   <main class=" text-white absolute mt-24 mx-5 md:mx-16">
+    <h1 class="text-4xl md:text-7xl text-center md:text-left leading-tight md:leading-snug">
+      Bienvenue sur <span class="text-black font-semibold"><br> PC CONGLOMERAT</span>
+    </h1>
+    <p class="w-full md:w-1/2 py-2 text-center md:text-left">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga impedit voluptatum voluptas iste, dicta deleniti natus sit nesciunt quia delectus alias, nihil quaerat officia? Iusto?
+    </p>
+    <div class=" mt-5">
+      <button class="px-4 py-1.5 bg-white text-black hover:bg-transparent hover:text-white rounded-full border-2">
+        Commencez
+      </button>
+    </div>
+  </main>
+
+</header> -->
+
+
+
+abase_auth.html:
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+    {% include 'head/css.html' %}
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
+
+
+model inscription:
+
+
+<div class=" flex items-center justify-center h-screen ">
+    <div class="items-center text-center border-2 px-10 py-8 rounded-lg">
+        <h1 class="pb-4">Inscription</h1>
+        <form action="">
+
+            <div class="pb-4">
+                <input type="text" name="last_name" placeholder="Votre Nom" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                focus:outline-none focus:border-sky-500 ">
+            </div>
+
+            <div class="pb-4">
+                <input type="text" name="first_name" placeholder="Votre Prenom" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                focus:outline-none focus:border-sky-500 ">
+            </div>
+
+            <div class="pb-4">
+                <input type="text" name="email" placeholder="Votre email" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                focus:outline-none focus:border-sky-500 ">
+            </div>
+
+            <div class="mb-4">
+                <input type="text" name="password1" placeholder="Entrez votre mot de passe" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                focus:outline-none focus:border-sky-500 ">
+            </div>
+
+            <div class="mb-4">
+                <input type="text" name="password2" placeholder="Confirmez votre mot de passe" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                focus:outline-none focus:border-sky-500 ">
+            </div>
+
+            <div class="pb-4">
+                <select name="user_type" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+                    focus:outline-none focus:border-sky-500">
+                    <option value="admin">Administrateur</option>
+                    <option value="employee">Employée</option>
+                </select>
+            </div>
+            <button type="submit" class="w-full px-3 py-2 bg-black text-white duration-300 hover:bg-transparent hover:text-black hover:shadow-lg rounded-lg">
+                Connexion
+            </button>
+
+            <div class="relative flex items-center">
+                <div class="border-b-2 absolute w-full"></div>
+                <div class="bg-white inline-block px-4 z-10 relative left-20">ou</div>
+            </div>
+            
+            <button class="my-4 w-full px-3 py-2 bg-black text-white duration-300 hover:bg-white hover:text-black hover:shadow-lg rounded-lg justify-between">
+                <ion-icon name="logo-google"></ion-icon>
+                google
+            </button>
+            <button class="w-full px-3 py-2 bg-black text-white duration-300 hover:bg-transparent hover:text-black hover:shadow-lg rounded-lg">
+                inscrivez-vous
+            </button>
+        </form>
+    </div>
+</div>
