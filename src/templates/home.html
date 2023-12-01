@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% block content %}
+    <section class="h-screen flex items-center justify-center">
+        {% if user.is_authent   icated %}
+
+        <div class="container mx-auto p-8 text-center">
+            <h1 class="text-5xl md:text-7xl leading-tight md:leading-snug">
+                <p>Akwaba, {{ request.user.username }}! </p>
+                Bienvenue sur <span class="text-black font-semibold block md:inline">PC CONGLOMERAT</span>
+            </h1>
+
+            <p class="w-full md:w-1/2 py-2 mx-auto md:text-left">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga impedit voluptatum voluptas iste, dicta deleniti natus sit nesciunt quia delectus alias, nihil quaerat officia? Iusto?
+            </p>
+            <div class="mt-5">
+                <button class="px-4 py-1.5 bg-white text-black hover:bg-transparent hover:text-white rounded-full border-2 lg:items-start">
+                    DashBord
+                </button>
+            </div>
+        </div>
+        {% else %}
+
+        <div class="container mx-auto p-8 text-center">
+            <h1 class="text-5xl md:text-7xl leading-tight md:leading-snug">
+                <p>Akwaba.</p>
+                Vous êtes bien sur <br><span class="text-black font-semibold block md:inline">PC CONGLOMERAT</span> <br /> Mais vous n'êtes pas connecté(e)
+            </h1>
+            <p class="w-full md:w-1/2 py-2 mx-auto md:text-left text-center">
+                
+            </p>
+            <div class="mt-5">
+                <button class="px-4 py-1.5 bg-white text-black hover:bg-transparent hover:text-white rounded-full border-2 lg:items-start">
+                    Commencez
+                </button>
+            </div>
+        </div>
+
+
+        {% endif %}
+    </section>
+{% endblock %}

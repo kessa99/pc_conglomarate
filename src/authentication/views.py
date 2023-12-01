@@ -1,66 +1,63 @@
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
-from django.views import View
-from .forms import SignUpForm
-from django.urls import reverse_lazy
-
-from django.views.generic import TemplateView, CreateView
-# Create your views here.
-
-class HomeView(TemplateView):
-    template_name = 'home_index.html'
-
-class SignUpView(CreateView):
-    form_class = SignUpForm
-    success_url = reverse_lazy('home')
-    template_name = 'authentication/enregistrement.html'
+from .forms import SignUpForm, LoginForm
+from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 
 
 
-# class SignUpView(View):
-#     template_name = 'authentication/signup.html'
+def signup(request):
+    form = SignUpForm()
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            print('valid')
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f"Compte créé pour {username}")
+            return redirect('login')
+        else:
+            # Ajouter les messages d'erreur à afficher dans le template
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field.capitalize()}: {error}")
+    context = {'form': form}
+    return render(request, 'registration/signup.html', context)
 
-#     def get(self, request, *args, **kwargs):
-#         form = SignUpForm()
-#         return render(request, self.template_name, {'form': form})
-    
-#     def post(self, request, *args, **kwargs):
-#         form = SignUpForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             login(request, user)
-#             return redirect('dashboard')
-#         return render(request, self.template_name, {'form': form})
 
+@csrf_exempt
+def user_login(request):
+    if request.method == 'GET':
+        form = LoginForm()
+        return render(request, 'registration/login.html', {'form': form})
 
-# class SignInView(View):
-#     template_name = 'authentication/login.html'
+    elif request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = request.POST.get('username')
+            password = request.POST.get('password1')
+            user = authenticate(username=username, password=password)
 
-#     def get(self, request, *args, **kwargs):
-#         form = SignInForm()
-#         return render(request, self.template_name, {'form': form})
-
-#     def post(self, request, *args, **kwargs):
-#         form = SignInForm(request, data=request.POST)
-#         if form.is_valid():
-#             user_type = form.cleaned_data.get('user_type')
-#             username = form.cleaned_data.get('username')
-#             password = form.cleaned_data.get('password')
-#             user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, f"Connexion réussie en tant que {username}")
+                return redirect('home')
+            else:
+                messages.error(request, "Nom d'utilisateur ou mot de passe incorrect.")
+        else:
+            # Ajouter les messages d'erreur à afficher dans le template
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field.capitalize()}: {error}")
             
-#             if user is not None and user_type == 'admin' and user.is_admin:
-#                 login(request, user)
-#                 return redirect('admin_dashboard')  # Rediriger vers le tableau de bord de l'admin
-#             elif user is not None and user_type == 'employee' and not user.is_admin:
-#                 login(request, user)
-#                 return redirect('employee_dashboard')  # Rediriger vers le tableau de bord de l'employé
-#             else:
-#                 # Authentification échouée
-#                 # Ajoutez le traitement approprié ici par la suite
-#                 pass
-        
-#         return render(request, self.template_name, {'form': form})
+            form = LoginForm()
+    else:
+        form = LoginForm()
 
+    context = {'form': form}
+    return render(request, 'registration/login.html', context)
 
-
+def user_logout(request):
+    logout(request)
+    messages.info(request, "Vous avez été déconnecté.")
+    return redirect('login')
