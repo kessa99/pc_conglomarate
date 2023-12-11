@@ -27,44 +27,54 @@
         <ul class="mt-4">
 
             <li>
-                <a href="" class="flex items-center py-2 px-4 text-gray-300 hover:bg-lime-500">
+                <a href="{% url 'empl' %}" class="flex items-center py-2 px-4 text-gray-300 duration-300 hover:bg-white hover:text-black rounded-lg">
                     <i class='bx bxs-home-heart'></i>
                     <span class="ml-2 text-sm">Accueil</span>
                 </a>
             </li>
             <li>
-                <a href="" class="flex items-center py-2 px-4 text-gray-300 hover:bg-lime-500">
+                <a href="{% url 'profil_employe' %}" class="flex items-center py-2 px-4 text-gray-300 duration-300 hover:bg-white hover:text-black rounded-lg">
                     <ion-icon name="person-circle"></ion-icon>
                     <span class="ml-2 text-sm">Profil</span>
                 </a>
             </li>
             <li>
-                <a href="" class="flex items-center py-2 px-4 text-gray-300 hover:bg-lime-500">
+                <a href="{% url 'dash_empl' %}" class="flex items-center py-2 px-4 text-gray-300 duration-300 hover:bg-white hover:text-black rounded-lg">
                     <ion-icon name="information-circle-outline"></ion-icon>
                     <span class="ml-2 text-sm">Information</span>
                 </a>
             </li>
             <li>
-                <a href="" class="flex items-center py-2 px-4 text-gray-300 hover:bg-lime-500">
-                    <ion-icon name="person-add-outline"></ion-icon>
-                    <span class="ml-2 text-sm">Creer un employer</span>
-                </a>
-            </li>
-            <li>
-                <a href="" class="flex items-center py-2 px-4 text-gray-300 hover:bg-lime-500">
+                <a href="" class="flex items-center py-2 px-4 text-gray-300 duration-300 hover:bg-white hover:text-black rounded-lg">
                     <ion-icon name="clipboard-outline"></ion-icon>
-                    <span class="ml-2 text-sm">Zone de Travail</span>
+                    <span class="ml-2 text-sm">Notifications</span>
                 </a>
             </li>
 
-            <li>
-                <a href="" class="flex items-center py-2 px-4 text-gray-300 hover:bg-lime-500">
-                    <i class='bx bx-cog' ></i>
-                    <span class="ml-2 text-sm">Paramètre</span>
-                </a>
+            <li class="relative">
+                <button type="button" data-dropdown-toggle="dropdown" class="w-full flex items-center py-2 px-4 text-gray-300 duration-300 hover:bg-white hover:text-black rounded-lg focus:outline-none">
+                    <div>
+                        <div class="flex">
+                            <i class='bx bx-cog'></i>
+                            <span class="ml-2 text-sm">Parametre</span>
+                        </div>
+                        <!-- Dropdown menu -->
+                        <div class="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4 absolute left-0 mt-2" id="dropdown">
+                            <ul class="py-1" aria-labelledby="dropdown">
+                                <li>
+                                    <a href="{% url 'modifier_profile' %}" class="text-sm block px-4 py-2 ">Modifier Profile</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'modifier_id' %}" class="text-sm block px-4 py-2">Changer Mot de Passe</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </button>
             </li>
+            
             <li>
-                <a href="" class="flex items-center py-2 px-4 text-gray-300 hover:bg-lime-500">
+                <a href="" class="flex items-center py-2 px-4 text-gray-300 duration-300 hover:bg-white hover:text-black rounded-lg">
                     <i class='bx bx-power-off' ></i>
                     <span class="ml-2 text-sm">Déconnexion</span>
                 </a>
@@ -84,4 +94,5 @@
 
 
     <script src="{ assets 'dashbord.js' }"></script>
+    <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
 </body>

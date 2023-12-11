@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{% block title %} Connexion {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class=" min-h-screen bg-gray-100 justify-center sm:py-12">
+    <div class="items-center text-center">
+        <h1 class="pb-4 text-3xl font-bold ">Connexion Employee</h1>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="container">
+            <form method="POST" name="signup" onsubmit="return checkpassword()">
+                {% csrf_token %}
+                <div class="pb-4 shadow-lg m-10 p-4">
+
+                    <div class="grid grid-cols-1 text-left ml-4">
+                        <label >Email</label>
+                        <input type="email" name="emailid" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="" type="text" placeholder="Entre votre email de connexion" required>
+                    </div>
+					<div class="ml-4 text-left">
+						<label>Mot de passe</label>
+						<input type="password" name="password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="" type="password" placeholder="Veuillez entrer votre mot de passe" required>
+					</div>
+                </div>
+                <input type="submit" value="Connexion" class="w-1/4 px-3 py-2 bg-black text-white duration-300 hover:bg-transparent hover:text-black hover:shadow-lg rounded-lg">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if error == "no" %}
+<script>
+    alert('Connexion reussi')
+    window.location= ('{% url 'empl_home' %}')
+</script>
+{% endif %}
+{% if error == "yes"  %}
+<script>
+    alert('Connexion Invalid')
+</script>
+{% endif %}
+
+<script>
+    function checkpassword() {
+        if (document.signup.password1.value!=document.signup.password2.value) {
+            alert('les mots de passe ne correspondent pas');
+            document.signup.password2.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
+
+{% endblock %}

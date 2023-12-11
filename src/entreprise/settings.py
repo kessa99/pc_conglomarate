@@ -138,7 +138,7 @@ STATIC_ROOT = BASE_DIR.parent / "local-cdn" / "static"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+AUTH_USER_MODEL = 'authentication.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'

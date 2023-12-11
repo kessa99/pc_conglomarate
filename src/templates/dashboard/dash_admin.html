@@ -1,4 +1,4 @@
-{% extends 'index_dash.html' %}
+{% extends 'main/main_dash_admin.html' %}
 
 {% block content %}
 <div class="py-2 px-6 bg-white flex items-center shadow-md shadow-black/5 sticky top-0 left-0 z-30 justify-between">
@@ -47,8 +47,8 @@
         <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
             <div class=" ">
                 <div class="align-center justify-center">
-                    <div class="text-2xl font-semibold mb-1">{{ total_employees }}</div>
-                    <div class="text-sm font-medium text-gray-400">Employe Enregistré</div>
+                    <div class="text-2xl font-semibold mb-1">2 Employés</div>
+                    <div class="text-sm font-medium text-gray-400">Enregistrés</div>
                 </div>
             </div>
         </div>
@@ -101,46 +101,5 @@
             </tbody>
         </table>
     </div>
-
-    <div class="relative h-px w-full bg-lime-950 mt-4"> 
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white text-gray-700 py-0 px-4"></div>
-    </div>
-
-    <div class="bg-white p-2 rounded shadow">
-        <h1 class="text-2xl font-bold mb-4">Liste des Societe</h1>
-        <table class="w-full">
-            <thead>
-                <tr>
-                    <th class="py-2">Prénom</th>
-                    <th class="py-2">Nom</th>
-                    <th class="py-2">Salaire</th>
-                    <th class="py-2">Grade</th>
-                    <th class="py-2">Enfants</th>
-                    <th class="py-2">Marié</th>
-                    <th class="py-2">Date</th>
-                    <th class="py-2">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for soc in socistes %}
-                <tr class="align-center">
-                    <td class="py-2">{{ employee.firstname }}</td>
-                    <td class="py-2">{{ employee.lastname }}</td>
-                    <td class="py-2">{{ employee.salary }}</td>
-                    <td class="py-2">{{ employee.grad }}</td>
-                    <td class="py-2">{{ employee.children }}</td>
-                    <td class="py-2">{{ employee.is_marie }}</td>
-                    <td class="py-2">{{ employee.date }}</td>
-      
-                    <td class="py-2">
-                        <a href="{% url '' %}" class="text-blue-500 hover:underline mr-2">Modifier</a>
-                        <a href="#" class="text-red-500 hover:underline">Supprimer</a> 
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-
 </div>
 {% endblock %}

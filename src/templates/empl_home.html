@@ -1,11 +1,11 @@
-{% extends 'main/base.html' %}
+{% extends 'main/empl_base.html' %}
 {% block content %}
     <section class="h-screen flex items-center justify-center">
-        <!-- {% if user.is_authenticated %} -->
+        <!-- {% if user.is_authenticated %}
 
-        <!-- <div class="container mx-auto p-8 text-center">
+        <div class="container mx-auto p-8 text-center">
             <h1 class="text-5xl md:text-7xl leading-tight md:leading-snug">
-                <p>Akwaba, {{ request.user.first_name }}! </p>
+                <p>Akwaba, {{ request.user.first_name }}!  en mode employee</p>
                 Bienvenue sur <span class="text-black font-semibold block md:inline">PC CONGLOMERAT</span>
             </h1>
 
@@ -17,12 +17,12 @@
                     DashBord
                 </button>
             </div>
-        </div> -->
-        <!-- {% else %} -->
+        </div>
+        {% else %} -->
 
         <div class="container mx-auto p-8 text-center">
             <h1 class="text-5xl md:text-7xl leading-tight md:leading-snug">
-                <p>Akwaba Visiteur.</p>
+                <p>Akwaba Employee David.</p>
                 Vous êtes bien sur <br><span class="text-black font-semibold block md:inline">PC CONGLOMERAT</span> <br />
             </h1>
             <p class="w-full md:w-1/2 py-2 mx-auto md:text-left text-center">
@@ -32,11 +32,9 @@
                 <button class="px-4 py-1.5 bg-white text-black hover:bg-transparent hover:text-white rounded-full border-2 lg:items-start">
                     Commencez
                 </button>
-                <!-- <a class="hidden lg:inline-block py-2 px-6 bg-black text-white duration-300 hover:bg-transparent hover:text-black hover:shadow-lg rounded-lg" href="#">Insciption Admin</a>
-                <a class="hidden lg:inline-block py-2 px-6 bg-black text-white duration-300 hover:bg-transparent hover:text-black hover:shadow-lg rounded-lg" href="#">Connexion Admin</a> -->
             </div>
         </div>
-       
+        
         <!-- {% endif %} -->
     </section>
 {% endblock %}
